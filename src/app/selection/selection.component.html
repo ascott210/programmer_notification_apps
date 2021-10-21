@@ -1,0 +1,40 @@
+<form [formGroup]="selectionForm" (ngSubmit)="submit(selectionForm.value)">
+  <mat-form-field appearance="outline">
+    <mat-label>Member</mat-label>
+    <input type="text"
+           placeholder="Pick a member"
+           aria-label="Member"
+           matInput
+           formControlName="member"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)" (optionSelected)="onMemberSelected($event.option.value)">
+      <mat-option *ngFor="let member of filteredMembers | async" [value]="member.id">
+        {{member.memberCode}} - {{member.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <div>
+    <angular2-multiselect
+      [data]="programmers"
+      formControlName="programmers"
+      [settings]="multiSelectSettings"
+    ></angular2-multiselect>
+  </div>
+
+  <div class="mt-4">
+    <mat-form-field class="me-4" appearance="outline">
+      <mat-label>Template</mat-label>
+      <input type="text"
+              placeholder="Pick a template"
+              aria-label="Template"
+              matInput
+              [disabled]="true"
+              [value]="selectionForm.controls.template?.value?.name">
+    </mat-form-field>
+    <button mat-raised-button type="button" (click)="openTemplateManager()">Template Manager</button>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="selectionForm.invalid">Submit</button>
+</form>
+

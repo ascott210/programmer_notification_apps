@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <app-selection
+    [members]="(members$ | async) || []"
+    [programmers]="(programmers$ | async) || []"
+    [selectedTemplate]="selectedTemplate$ | async"
+    (onGetProgrammers)="getProgrammerList($event)"
+    (onOpenTemplateManager)="openTemplateManager()"
+    (onSubmit)="submit($event)"
+  ></app-selection>
+<mat-divider class="my-4"></mat-divider>
+<app-preview></app-preview>
+</div>

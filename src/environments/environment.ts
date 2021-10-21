@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiEndpoint: 'http://devaustin.nctconline.org:6880/api/',
+  oktaRedirectUri: 'https://localhost:4200/auth/callback',
 };
 
 /*

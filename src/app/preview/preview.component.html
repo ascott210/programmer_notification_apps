@@ -1,0 +1,19 @@
+<button mat-raised-button class="mb-4" (click)="openRecipients()">View Recipients</button>
+<form [formGroup]="previewForm">
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Subject</mat-label>
+    <input formControlName="subject" matInput placeholder="Subject" />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Body</mat-label>
+    <textarea
+      formControlName="body"
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="5"
+      cdkAutosizeMaxRows="30"
+      placeholder="Body"></textarea
+    >
+  </mat-form-field>
+</form>

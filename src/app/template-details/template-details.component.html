@@ -1,0 +1,30 @@
+<mat-dialog-content>
+  <form [formGroup]="templateForm" (ngSubmit)="onSave(templateForm.value)">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Template Name</mat-label>
+      <input formControlName="name" matInput placeholder="Template Name" />
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Subject</mat-label>
+      <input formControlName="subject" matInput placeholder="Subject" />
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Body</mat-label>
+      <textarea
+        formControlName="body"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="5"
+        cdkAutosizeMaxRows="30"
+        placeholder="Body"></textarea
+      >
+    </mat-form-field>
+
+    <div class="d-flex justify-content-end">
+      <button mat-raised-button color="primary" class="me-4" type="submit" [disabled]="templateForm.invalid">Save</button>
+      <button mat-raised-button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</mat-dialog-content>

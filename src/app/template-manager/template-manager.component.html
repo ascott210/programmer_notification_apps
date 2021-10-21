@@ -1,0 +1,13 @@
+<mat-dialog-content>
+  <div class="d-flex align-items-center">
+    <h2 class="me-3 mb-0">Templates</h2>
+    <button mat-raised-button type="button" (click)="openDialog(null)">+ Create New</button>
+  </div>
+
+  <app-template-list
+    [templates]="(templates$ | async) || []"
+    (onEditTemplate)="openDialog($event)"
+    (onDeleteTemplate)="deleteTemplate($event)"
+    (onSelectTemplate)="selectTemplate($event)"
+  ></app-template-list>
+</mat-dialog-content>
