@@ -16,4 +16,9 @@
       placeholder="Body"></textarea
     >
   </mat-form-field>
+
+  <div class="d-flex mb-2">
+    <button mat-raised-button class="me-2 mb-4" type="button" [disabled]="sending" (click)="onSubmit(true)">Send Test Email</button>
+    <button mat-raised-button color="primary" class="mb-4" type="button" [disabled]="sending" (click)="onSubmit(false)">Send Emails</button>
+  </div>
 </form>

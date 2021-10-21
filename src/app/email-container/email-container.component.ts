@@ -56,6 +56,7 @@ export class EmailContainerComponent implements OnInit {
   async submit(selectionFormValue: SelectionFormValue) {
     const recipients = await this.previewService
       .getContactList(
+        selectionFormValue.member,
         selectionFormValue.programmers.map((programmer) => programmer.id)
       )
       .toPromise();

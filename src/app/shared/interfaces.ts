@@ -24,14 +24,14 @@ export interface EmailTemplate {
 }
 
 export interface Email {
-  id: string;
-  emailFrom: string;
-  emailTo: string;
-  nameFrom: string;
-  nameTo: string;
+  id?: string;
+  emailFrom?: string;
+  emailTo?: string;
+  nameFrom?: string;
+  nameTo?: string;
   subject: string;
   body: string;
-  date: string;
+  date?: string;
 }
 
 export interface PreviewData {
